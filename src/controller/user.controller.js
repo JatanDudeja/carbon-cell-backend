@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
     );
 
     // Respond with success status and user data
-    return res.status(201).json({ statusCode: 201, data: createdUserData });
+    return res.status(201).json({ statusCode: 201, data: createdUserData, message: "User Registered Successfully." });
   } catch (error) {
     console.error("Error registering user:", error);
     return res.status(500).json({
@@ -60,7 +60,7 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
 
-  if (username.trim() === "" || password.trim() === "") {
+  if (username?.trim() === "" || password?.trim() === "") {
     return res.status(400).send({
       statusCode: 400,
       error: "Username or Password can not be empty",
