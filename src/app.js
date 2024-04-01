@@ -17,9 +17,6 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000",
-      },
-      {
         url: "https://carbon-cell-backend-iy99.onrender.com",
       },
     ],
