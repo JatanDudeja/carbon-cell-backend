@@ -20,7 +20,7 @@ const options = {
         url: "http://localhost:3000",
       },
       {
-        url: "https://carbon-cell-backend-iy99.onrender.com/",
+        url: "https://carbon-cell-backend-iy99.onrender.com",
       },
     ],
   },
@@ -52,5 +52,9 @@ app.use("/api/v1/users", userRouter); // user logging in, signup routes are here
 import publicAPIData from "./route/publicAPI.route.js";
 
 app.use("/api/v1/publicAPI", publicAPIData); // user logging in, signup routes are here
+
+import mainnetAPI from './route/mainnetWalletBalance.route.js';
+
+app.use("/api/v1/mainnetAPI", mainnetAPI); //  Mainnet Wallet Balances
 
 export default app;
