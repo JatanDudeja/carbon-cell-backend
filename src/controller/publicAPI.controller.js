@@ -2,24 +2,19 @@ import axios from "axios";
 
 const getAllData = async (req, res) => {
   try {
-    const response = await axios.get("https://api.publicapis.org/entries");
+    const { category } = req.query;
+
+    const createURL = `https://api.publicapis.org/entries${category ? `?category=${category.charAt(0).toUpperCase() + category.slice(1)}` : ""}`
+
+    const response = await axios.get(createURL);
 
     const data = response.data.entries;
-
-    const { category } = req.query;
 
     // If limit query parameter is provided
     let { limit } = req.query;
     limit = limit ? parseInt(limit, 10) : undefined;
 
     let resultData = data;
-
-    // Filter data based on category
-    if (category) {
-      resultData = resultData.filter(
-        (entry) => entry.Category.toLowerCase() === category.toLowerCase()
-      );
-    }
 
     // Apply result limit
     if (limit) {
