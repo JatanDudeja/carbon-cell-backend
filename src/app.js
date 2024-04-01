@@ -20,7 +20,7 @@ const options = {
         url: "http://localhost:3000",
       },
       {
-        url: "https://carbon-cell-backend-iy99.onrender.com",
+        url: "https://carbon-cell-backend-production.up.railway.app",
       },
     ],
   },
@@ -34,7 +34,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 const corsOptions = {
   origin: [
     "http://localhost:3000",
-    "https://carbon-cell-backend-iy99.onrender.com",
+    "https://carbon-cell-backend-production.up.railway.app",
   ],
   credentials: true,
 };
